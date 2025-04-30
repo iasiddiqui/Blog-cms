@@ -36,5 +36,5 @@ Before running the project, make sure you have the following installed:
 Clone the project to your local machine:
 
 ```bash
-git clone https://github.com/your-username/blog-cms.git
-cd blog-cms
+git clone https://github.com/iasiddiqui/Blog-cms
+cd Blog-cms
