@@ -1,0 +1,27 @@
+/* src/components/Navbar.css */
+.navbar {
+    background-color: #6b6b6b;
+    padding: 10px 20px;
+  }
+  
+  .navbar-list {
+    list-style: none;
+    display: flex;         /* Align items horizontally */
+    justify-content: center; /* Center the items horizontally */
+  }
+  
+  .navbar-item {
+    margin: 0 20px;        /* Space between the links */
+  }
+  
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #ddd;
+  }
+  

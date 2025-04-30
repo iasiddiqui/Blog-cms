@@ -10,7 +10,7 @@ const seedAdmin = async () => {
   try {
     await connectDB();
 
-    const existing = await Admin.findOne({ username: "admin" });
+    const existing = await Admin.findOne({ email: "admin@gmail.com" });
     if (existing) {
       console.log("⚠️ Admin already exists. Skipping creation.");
       process.exit(0);
@@ -19,7 +19,7 @@ const seedAdmin = async () => {
     const hashedPassword = await bcrypt.hash("admin123", 10);
 
     const admin = new Admin({
-      username: "admin",
+      email: "admin@gmail.com",
       password: hashedPassword,
     });
 

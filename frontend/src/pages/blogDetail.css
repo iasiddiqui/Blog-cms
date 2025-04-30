@@ -1,0 +1,50 @@
+/* BlogDetail Container */
+.BlogDetail-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Blog Title */
+  .BlogDetail-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+  /* Blog Content */
+  .BlogDetail-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+  }
+  
+  /* Category and Tags */
+  .BlogDetail-info {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .BlogDetail-info p {
+    margin: 10px 0;
+  }
+  
+  .BlogDetail-info strong {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Loading Message */
+  .BlogDetail-loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    font-weight: 500;
+  }
+  

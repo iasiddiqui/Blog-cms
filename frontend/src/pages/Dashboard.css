@@ -1,0 +1,111 @@
+/* Dashboard.css */
+.dashboard-container {
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.dashboard-heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-input {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dashboard-submit-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dashboard-submit-button:hover {
+  background-color: #45a049;
+}
+
+.dashboard-separator {
+  margin: 20px 0;
+}
+
+.dashboard-subheading {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.dashboard-blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-blog-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.dashboard-blog-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-blog-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-edit-button,
+.dashboard-delete-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.dashboard-edit-button {
+  background-color: #007BFF;
+  color: white;
+}
+
+.dashboard-edit-button:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-delete-button {
+  background-color: #FF5733;
+  color: white;
+}
+
+.dashboard-delete-button:hover {
+  background-color: #e64a19;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.logout-button:hover {
+  background-color: #e53935;
+}

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import API from "../api/api";
-
+import './Login.css';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
-  const [form, setForm] = useState({ username: "", password: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -15,37 +17,55 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Sending login request with:", form); // Debug log
       const res = await API.post("/auth/login", form);
       localStorage.setItem("token", res.data.token);
       navigate("/admin");
     } catch (err) {
-      setError("Invalid credentials");
+      console.error("Login error:", err.response?.data || err.message);
+      setError(err.response?.data?.message || "Invalid credentials");
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   return (
-    <div className="auth-container">
+    <div className="login-container">
       <h2>Admin Login</h2>
       <form onSubmit={handleSubmit}>
         <input
-          name="username"
-          placeholder="Username"
+          name="email"
+          type="text"
+          placeholder="Email"
           onChange={handleChange}
-          value={form.username}
+          value={form.email}
+          className="login-input"
           required
         />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={handleChange}
-          value={form.password}
-          required
-        />
-        <button type="submit">Login</button>
-        {error && <p className="error">{error}</p>}
+        <div className="login-password-container">
+          <input
+            name="password"
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Password"
+            onChange={handleChange}
+            value={form.password}
+            className="login-input"
+            required
+          />
+          <button
+            type="button"
+            className="password-eye-icon"
+            onClick={togglePasswordVisibility}
+          >
+            {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+          </button>
+        </div>
+        <button type="submit" className="login-button">Login</button>
+        {error && <p className="login-error">{error}</p>}
       </form>
-      <p>
+      <p className="login-signup-link">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </p>
     </div>
