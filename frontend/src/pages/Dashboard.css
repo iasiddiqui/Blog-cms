@@ -1,4 +1,14 @@
+
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
 .dashboard-container {
+  /* margin-top: 3rem; */
   padding: 20px;
   background-color: #f4f4f9;
 }
@@ -8,7 +18,6 @@
   margin-bottom: 20px;
 }
 
-/* NEW: actions aligned left & right */
 .dashboard-actions {
   display: flex;
   justify-content: space-between;
@@ -129,7 +138,6 @@
   background-color: #45a049;
 }
 
-/* Modal styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -141,7 +149,7 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
-  overflow: auto; /* modal scrollable if overflow */
+  overflow: auto;
 }
 
 .modal-content {
@@ -168,6 +176,7 @@
 .modal-close-button:hover {
   color: #f44336;
 }
+
 .error-message {
   color: red;
   font-size: 12px;
@@ -176,4 +185,67 @@
 
 .input-group {
   margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .dashboard-heading {
+    font-size: 1.8rem;
+  }
+
+  
+
+  .dashboard-input,
+  .dashboard-submit-button {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-heading {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-blog-card {
+    padding: 10px;
+  }
+
+  .dashboard-blog-title {
+    font-size: 1rem;
+  }
+
+  
+}
+
+@media (max-width: 600px) {
+  .dashboard-heading {
+    font-size: 1.4rem;
+  }
+
+ 
+ 
+  .dashboard-blog-list {
+    gap: 5px;
+  }
+
+  .dashboard-input,
+  .dashboard-submit-button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+
+  .dashboard-edit-button,
+  .dashboard-delete-button {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
 }

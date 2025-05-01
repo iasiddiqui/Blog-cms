@@ -13,12 +13,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* LOGO */}
       <div className="navbar-logo">
         <Link to="/" className="navbar-logo-link">Your<span>Blog</span></Link>
       </div>
 
-      {/* HAMBURGER BUTTON */}
       <button
         className="navbar-toggle"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -27,7 +25,6 @@ const Navbar = () => {
         ☰
       </button>
 
-      {/* NAV LINKS */}
       <ul className={`navbar-list ${isMenuOpen ? 'open' : ''}`}>
         <li className="navbar-item">
           <Link to="/" className="navbar-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
@@ -37,7 +34,6 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* THEME TOGGLE */}
       <button
         className="theme-toggle-button"
         onClick={() => setIsDarkMode(!isDarkMode)}

@@ -1,4 +1,3 @@
-// models/Blog.js
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema(
@@ -18,7 +17,7 @@ const blogSchema = new mongoose.Schema(
       default: "Admin",
     },
     image: {
-      type: String, // URL of the uploaded image from Cloudinary
+      type: String, 
       required: false,
     },
   },

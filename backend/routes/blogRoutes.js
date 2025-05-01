@@ -24,7 +24,6 @@ router.post("/", authMiddleware, createBlog);
 router.put("/:id", authMiddleware, updateBlog);
 router.delete("/:id", authMiddleware, deleteBlog);
 
-// ✅ ADD MULTER middleware here!
 router.post("/upload-image", authMiddleware, upload.single("image"), uploadImage);
 
 module.exports = router;

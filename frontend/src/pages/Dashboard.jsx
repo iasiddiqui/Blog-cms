@@ -26,7 +26,7 @@ export default function Dashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Form validation
+    //  Form validation
     const newErrors = {};
     if (!form.title.trim()) newErrors.title = "Title is required";
     if (!form.content.trim()) newErrors.content = "Content is required";

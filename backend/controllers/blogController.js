@@ -1,7 +1,6 @@
-// controllers/blogController.js
 const Blog = require("../models/Blog");
 const cloudinary = require("../config/cloudinaryConfig");
-const fs = require("fs"); // ✅ For deleting local file after upload
+const fs = require("fs"); 
 
 // Create Blog
 exports.createBlog = async (req, res) => {
@@ -28,7 +27,7 @@ exports.createBlog = async (req, res) => {
   }
 };
 
-// ✅ Image upload handler (Cloudinary)
+// Image upload handler (Cloudinary)
 exports.uploadImage = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "No image uploaded" });
@@ -42,7 +41,7 @@ exports.uploadImage = async (req, res) => {
       folder: "blog_images", // Optional: Cloudinary folder name
     });
 
-    // ✅ Delete local file after upload
+    // Delete local file after upload
     fs.unlinkSync(filePath);
 
     console.log("Image uploaded to Cloudinary:", result.secure_url);
