@@ -9,7 +9,11 @@ export default function Home() {
 
   useEffect(() => {
     API.get("/blogs")
-      .then((res) => setBlogs(res.data))
+      .then((res) => {
+        console.log("API response:", res.data);
+        // Adjust the following line based on the actual structure of res.data
+        setBlogs(Array.isArray(res.data) ? res.data : res.data.blogs || []);
+      })
       .catch((err) => console.error("Failed to load blogs:", err));
   }, []);
 
@@ -19,7 +23,6 @@ export default function Home() {
     ? blogs
     : blogs.filter((blog) => blog.category === selectedCategory);
 
-  // Function to trim content and avoid wrapping unwanted `<p>` tags
   const getExcerpt = (content) => {
     const text = content.replace(/<[^>]+>/g, ''); // Strip HTML tags
     return text.length > 150 ? text.substring(0, 150) + '...' : text;
@@ -45,36 +48,34 @@ export default function Home() {
 
       {/* Blog List */}
       <div className="home-blog-cards">
-  {filteredBlogs.length ? (
-    filteredBlogs.map((blog) => (
-      <div className="home-blog-card" key={blog._id}>
-        {/* 🖼️ Image here */}
-        {blog.image && (
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="home-blog-image"
-          />
+        {filteredBlogs.length ? (
+          filteredBlogs.map((blog) => (
+            <div className="home-blog-card" key={blog._id}>
+              {blog.image && (
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="home-blog-image"
+                />
+              )}
+              <div className="home-blog-header">
+                <Link to={`/blog/${blog._id}`} className="home-blog-title">
+                  {blog.title}
+                </Link>
+              </div>
+              <div className="home-blog-content">
+                {getExcerpt(blog.content)}
+                <Link to={`/blog/${blog._id}`}>Read More</Link>
+              </div>
+              <div className="home-blog-footer">
+                <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="home-no-blogs">No blogs found.</p>
         )}
-        <div className="home-blog-header">
-          <Link to={`/blog/${blog._id}`} className="home-blog-title">
-            {blog.title}
-          </Link>
-        </div>
-        <div className="home-blog-content">
-          {getExcerpt(blog.content)}
-          <Link to={`/blog/${blog._id}`}>Read More</Link>
-        </div>
-        <div className="home-blog-footer">
-          <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
-        </div>
       </div>
-    ))
-  ) : (
-    <p className="home-no-blogs">No blogs found.</p>
-  )}
-</div>
-
     </div>
   );
 }
