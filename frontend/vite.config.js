@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/your-project-name/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/your-project-name/' : '/', // Use your actual project name if deployed in a subfolder
   define: {
     'process.env': {
       VITE_API_URL: process.env.VITE_API_URL,
@@ -15,7 +15,7 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            return 'vendor';
+            return 'vendor'; // Separate vendor libraries into their own chunk
           }
         },
       },
