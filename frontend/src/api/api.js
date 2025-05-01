@@ -1,13 +1,17 @@
-import axios from "axios";
+// src/api/api.js (frontend)
+import axios from 'axios';
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Change to your production API URL
+  baseURL: 'http://localhost:5000/api', // Replace with your actual backend URL
 });
 
-API.interceptors.request.use((req) => {
-  const token = localStorage.getItem("token");
-  if (token) req.headers.Authorization = `Bearer ${token}`;
-  return req;
+// Add Authorization header for all requests
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+  if (token) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  }
+  return config;
 });
 
 export default API;

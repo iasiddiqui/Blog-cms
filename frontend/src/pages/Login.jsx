@@ -71,3 +71,54 @@ export default function Login() {
     </div>
   );
 }
+
+
+// /
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import API from "../api/api"; // Import the API instance
+// import './Login.css';
+
+// export default function Login() {
+//   const [form, setForm] = useState({ email: "", password: "" });
+//   const [error, setError] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const res = await API.post("/auth/login", form); // Send login request
+//       localStorage.setItem("token", res.data.token); // Save token to localStorage
+//       navigate("/admin"); // Redirect to dashboard after successful login
+//     } catch (err) {
+//       setError(err.response?.data?.message || "Login failed.");
+//     }
+//   };
+
+//   return (
+//     <div className="login-container">
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           name="email"
+//           type="email"
+//           placeholder="Email"
+//           onChange={handleChange}
+//           value={form.email}
+//         />
+//         <input
+//           name="password"
+//           type="password"
+//           placeholder="Password"
+//           onChange={handleChange}
+//           value={form.password}
+//         />
+//         <button type="submit">Login</button>
+//         {error && <p>{error}</p>}
+//       </form>
+//     </div>
+//   );
+// }

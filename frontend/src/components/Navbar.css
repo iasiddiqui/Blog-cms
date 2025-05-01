@@ -6,12 +6,12 @@
   
   .navbar-list {
     list-style: none;
-    display: flex;         /* Align items horizontally */
-    justify-content: center; /* Center the items horizontally */
+    display: flex;       
+    justify-content: center; 
   }
   
   .navbar-item {
-    margin: 0 20px;        /* Space between the links */
+    margin: 0 20px;   
   }
   
   .navbar-link {

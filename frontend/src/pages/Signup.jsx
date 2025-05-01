@@ -71,3 +71,56 @@ export default function Signup() {
     </div>
   );
 }
+
+
+
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import API from "../api/api"; // Import API instance
+// import './Signup.css';
+
+// export default function Signup() {
+//   const [form, setForm] = useState({ email: "", password: "" });
+//   const [error, setError] = useState("");
+//   const [success, setSuccess] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       await API.post("/auth/signup", form); // Send signup data to the backend
+//       setSuccess("Account created! Redirecting to login...");
+//       setTimeout(() => navigate("/login"), 1500); // Redirect to login after success
+//     } catch (err) {
+//       setError(err.response?.data?.message || "Signup failed.");
+//     }
+//   };
+
+//   return (
+//     <div className="signup-container">
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           name="email"
+//           type="email"
+//           placeholder="Email"
+//           onChange={handleChange}
+//           value={form.email}
+//         />
+//         <input
+//           name="password"
+//           type="password"
+//           placeholder="Password"
+//           onChange={handleChange}
+//           value={form.password}
+//         />
+//         <button type="submit">Sign Up</button>
+//         {error && <p>{error}</p>}
+//         {success && <p>{success}</p>}
+//       </form>
+//     </div>
+//   );
+// }

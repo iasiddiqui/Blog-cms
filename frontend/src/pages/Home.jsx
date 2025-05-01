@@ -45,29 +45,36 @@ export default function Home() {
 
       {/* Blog List */}
       <div className="home-blog-cards">
-        {filteredBlogs.length ? (
-          filteredBlogs.map((blog) => (
-            <div className="home-blog-card" key={blog._id}>
-              <div className="home-blog-header">
-                {/* Link on content instead of header */}
-                <Link to={`/blog/${blog._id}`} className="home-blog-title">
-                  {blog.title}
-                </Link>
-              </div>
-              {/* Display the excerpt */}
-              <div className="home-blog-content">
-                {getExcerpt(blog.content)}
-                <Link to={`/blog/${blog._id}`}>Read More</Link>
-              </div>
-              <div className="home-blog-footer">
-                <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="home-no-blogs">No blogs found.</p>
+  {filteredBlogs.length ? (
+    filteredBlogs.map((blog) => (
+      <div className="home-blog-card" key={blog._id}>
+        {/* 🖼️ Image here */}
+        {blog.image && (
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="home-blog-image"
+          />
         )}
+        <div className="home-blog-header">
+          <Link to={`/blog/${blog._id}`} className="home-blog-title">
+            {blog.title}
+          </Link>
+        </div>
+        <div className="home-blog-content">
+          {getExcerpt(blog.content)}
+          <Link to={`/blog/${blog._id}`}>Read More</Link>
+        </div>
+        <div className="home-blog-footer">
+          <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
+        </div>
       </div>
+    ))
+  ) : (
+    <p className="home-no-blogs">No blogs found.</p>
+  )}
+</div>
+
     </div>
   );
 }

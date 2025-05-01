@@ -1,3 +1,4 @@
+// models/Blog.js
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema(
@@ -7,7 +8,7 @@ const blogSchema = new mongoose.Schema(
       required: true,
     },
     content: {
-      type: String, // HTML from Quill editor
+      type: String,
       required: true,
     },
     tags: [String],
@@ -15,6 +16,10 @@ const blogSchema = new mongoose.Schema(
     author: {
       type: String,
       default: "Admin",
+    },
+    image: {
+      type: String, // URL of the uploaded image from Cloudinary
+      required: false,
     },
   },
   { timestamps: true }

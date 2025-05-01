@@ -1,33 +1,32 @@
 .editor-container {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 0.5rem;
-    background-color: white;
-  }
-  
-  .editor-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .editor-toolbar button {
-    background-color: #f1f1f1;
-    border: none;
-    padding: 0.4rem 0.7rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .editor-toolbar button.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .editor-content {
-    min-height: 300px;
-    padding: 1rem;
-    border-top: 1px solid #ccc;
-  }
-  
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.editor-toolbar button {
+  background-color: #737272;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editor-toolbar button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.editor-content {
+  min-height: 300px;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+}
