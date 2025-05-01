@@ -53,6 +53,7 @@ CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 VITE_API_URL=http://localhost:5000/api  # for frontend API URL
+```
 
 
 ## 📦 Installation
