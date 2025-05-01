@@ -1,49 +1,26 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
 import API from "../api/api";
 import { Link } from "react-router-dom";
 import './home.css';
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
-  const [displayedBlogs, setDisplayedBlogs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [hasMore, setHasMore] = useState(true);
-  const [itemsToShow, setItemsToShow] = useState(5);
-  const { ref, inView } = useInView();
 
   useEffect(() => {
     API.get("/blogs")
       .then((res) => {
-        const allBlogs = Array.isArray(res.data) ? res.data : res.data.blogs || [];
-        setBlogs(allBlogs);
-        setDisplayedBlogs(allBlogs.slice(0, itemsToShow));
-        if (allBlogs.length <= itemsToShow) {
-          setHasMore(false);
-        }
+        setBlogs(Array.isArray(res.data) ? res.data : res.data.blogs || []);
       })
       .catch((err) => console.error("Failed to load blogs:", err));
   }, []);
 
-  // Load more blogs when the sentinel comes into view
-  useEffect(() => {
-    if (inView && hasMore) {
-      const newItemsToShow = itemsToShow + 5;
-      const newDisplayed = blogs.slice(0, newItemsToShow);
-      setDisplayedBlogs(newDisplayed);
-      setItemsToShow(newItemsToShow);
-      if (newDisplayed.length >= blogs.length) {
-        setHasMore(false);
-      }
-    }
-  }, [inView, hasMore, itemsToShow, blogs]);
-
   const categories = ["All", ...new Set(blogs.map((blog) => blog.category).filter(Boolean))];
 
   const filteredBlogs = selectedCategory === "All"
-    ? displayedBlogs
-    : displayedBlogs.filter((blog) => blog.category === selectedCategory);
+    ? blogs
+    : blogs.filter((blog) => blog.category === selectedCategory);
 
   const getExcerpt = (content) => {
     const text = content.replace(/<[^>]+>/g, '');
@@ -97,9 +74,6 @@ export default function Home() {
         ) : (
           <p className="home-no-blogs">No blogs found.</p>
         )}
-
-        {/* 👇 Sentinel for loading more */}
-        {hasMore && <div ref={ref} className="loading-sentinel">Loading more blogs...</div>}
       </div>
     </div>
   );
