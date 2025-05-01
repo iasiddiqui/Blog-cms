@@ -1,11 +1,7 @@
 import axios from 'axios';
 
-// Set backend URL based on environment
-const backendURL = process.env.NODE_ENV === 'production'
-  ? 'https://your-deployed-backend-url.com/api'  
-  : 'http://localhost:5000/api';                
 const API = axios.create({
-  baseURL: backendURL,
+  baseURL: import.meta.env.VITE_API_URL,  // Automatically picks from .env or .env.production
 });
 
 // Add Authorization header for all requests
