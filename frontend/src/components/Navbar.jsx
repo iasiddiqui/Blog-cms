@@ -12,6 +12,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      {/* LOGO */}
+      <div className="navbar-logo">
+        <Link to="/" className="navbar-logo-link">Your<span>Blog</span></Link>
+      </div>
+
+      {/* NAV LINKS */}
       <ul className="navbar-list">
         <li className="navbar-item">
           <Link to="/" className="navbar-link">Home</Link>
@@ -20,6 +26,8 @@ const Navbar = () => {
           <Link to="/login" className="navbar-link">Login</Link>
         </li>
       </ul>
+
+      {/* THEME TOGGLE */}
       <button
         className="theme-toggle-button"
         onClick={() => setIsDarkMode(!isDarkMode)}
